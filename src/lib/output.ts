@@ -11,7 +11,7 @@ export function output(
   data: unknown,
   opts: { json?: boolean; format?: string; fields?: string[]; noHeader?: boolean } = {},
 ): void {
-  const isJson = opts.json ?? globalFlags.json;
+  const isJson = opts.json === true || globalFlags.json;
   const format = isJson ? "json" : (opts.format ?? globalFlags.format);
 
   switch (format) {

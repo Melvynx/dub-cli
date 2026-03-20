@@ -8,12 +8,20 @@ import { tagsResource } from "./resources/tags.js";
 import { foldersResource } from "./resources/folders.js";
 import { customersResource } from "./resources/customers.js";
 import { analyticsResource } from "./resources/analytics.js";
+import { eventsResource } from "./resources/events.js";
+import { trackResource } from "./resources/track.js";
+import { partnersResource } from "./resources/partners.js";
+import { commissionsResource } from "./resources/commissions.js";
+import { payoutsResource } from "./resources/payouts.js";
+import { qrResource } from "./resources/qr.js";
+import { metatagsResource } from "./resources/metatags.js";
+import { tokensResource } from "./resources/tokens.js";
 
 const program = new Command();
 
 program
   .name("dub-cli")
-  .description("CLI for the Dub.co API - manage short links, domains, tags, and analytics")
+  .description("CLI for the Dub.co API - manage short links, domains, analytics, and more")
   .version("0.1.0")
   .option("--json", "Output as JSON", false)
   .option("--format <fmt>", "Output format: text, json, csv, yaml", "text")
@@ -29,12 +37,23 @@ program
     globalFlags.noHeader = root.header === false;
   });
 
+// Built-in commands
 program.addCommand(authCommand);
+
+// Resources
 program.addCommand(linksResource);
 program.addCommand(domainsResource);
 program.addCommand(tagsResource);
 program.addCommand(foldersResource);
 program.addCommand(customersResource);
 program.addCommand(analyticsResource);
+program.addCommand(eventsResource);
+program.addCommand(trackResource);
+program.addCommand(partnersResource);
+program.addCommand(commissionsResource);
+program.addCommand(payoutsResource);
+program.addCommand(qrResource);
+program.addCommand(metatagsResource);
+program.addCommand(tokensResource);
 
 program.parse();

@@ -1,14 +1,27 @@
 {
   "name": "dub-cli",
   "version": "0.1.0",
-  "description": "CLI for the dub API",
+  "description": "CLI for the Dub.co API - manage short links, domains, analytics, partners, and more",
   "type": "module",
   "bin": {
     "dub-cli": "./dist/index.js"
   },
+  "files": [
+    "dist/index.js",
+    "README.md"
+  ],
   "scripts": {
     "build": "bun build src/index.ts --outfile dist/index.js --target bun",
     "dev": "bun run src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melvynx/dub-cli.git"
+  },
+  "keywords": ["cli", "api", "dub", "short-links", "url-shortener", "analytics"],
+  "license": "MIT",
+  "engines": {
+    "bun": ">=1.0"
   },
   "dependencies": {
     "commander": "^13.0.0",
